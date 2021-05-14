@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <!--
+        kie = knowledge_is_everything  = 知识就是一切
+
+        name:指定kie base的名称，可以任意，但是需要唯一
+        packages:指定规则文件的目录，需要根据实际情况填写，否则无法加载到规则文件
+        default:指定当前kie base是否为默认
+    -->
+    <kbase name="myKieBaseOne" packages="drools_rules" default="true">
+        <!--
+            name:指定ksession名称，可以任意，但是需要唯一
+            default:指定当前session是否为默认
+        -->
+        <ksession name="kie-session-rule" default="true"/>
+    </kbase>
+</kmodule>

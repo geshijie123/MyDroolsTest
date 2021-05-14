@@ -1,0 +1,27 @@
+package cn.cango.card
+
+import cn.cango.bean.CanGoCardBean
+import cn.cango.util.HtmlTool
+global HtmlTool htmlTool
+
+rule "true"
+    when
+        $canGoCardBean:CanGoCardBean()
+    then
+       $canGoCardBean.setCardSize($canGoCardBean.getCard().toString().length());
+       update($canGoCardBean)
+       System.out.println("规则生效 赋值cardSize :"+$canGoCardBean.getCard().toString().length());
+end
+
+
+
+
+rule "card_13_jinka"
+    when
+        $canGoCardBean:CanGoCardBean(cardSize == 13 && cardName == "金卡")
+    then
+        $canGoCardBean.setCardName("13位金卡");
+        String str = htmlTool.getStr();
+        System.out.println(str);
+        System.out.println("规则生效~");
+end
